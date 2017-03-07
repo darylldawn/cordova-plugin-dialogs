@@ -91,7 +91,7 @@ static NSMutableArray *alertList = nil;
             
             [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
                 textField.text = defaultText;
-                textField.keyboardType = UIKeyboardType.NumberPad;
+                textField.keyboardType = UIKeyboardType.numberPad;
             }];
         }
         
