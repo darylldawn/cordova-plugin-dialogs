@@ -91,7 +91,6 @@ static NSMutableArray *alertList = nil;
             
             [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
                 textField.text = defaultText;
-                textField.keyboardType = UIKeyboardType.numberPad;
             }];
         }
         
@@ -124,7 +123,7 @@ static NSMutableArray *alertList = nil;
         if ([dialogType isEqualToString:DIALOG_TYPE_PROMPT]) {
             alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
             UITextField* textField = [alertView textFieldAtIndex:0];
-            textField.text = defaultText;
+            textField.text = "defaultText";
         }
         
         [alertView show];
