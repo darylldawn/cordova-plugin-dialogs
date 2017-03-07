@@ -115,7 +115,7 @@ static NSMutableArray *alertList = nil;
                                    otherButtonTitles:nil];
         
         alertView.callbackId = callbackId;
-        
+        UITextField* textField;
         
         
         for (int n = 0; n < count; n++) {
@@ -124,11 +124,15 @@ static NSMutableArray *alertList = nil;
         
         if ([dialogType isEqualToString:DIALOG_TYPE_PROMPT]) {
             alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-            UITextField* textField = [alertView textFieldAtIndex:0];
+            textField = [alertView textFieldAtIndex:0];
             textField.text = defaultText;
         }
         
         [alertView show];
+     
+         [textField resignFirstResponder];
+         [textField setKeyboardType:UIKeyboardTypeNumberPad];
+         [textField becomeFirstResponder];
 #ifdef __IPHONE_8_0
     }
 #endif
