@@ -124,13 +124,15 @@ static NSMutableArray *alertList = nil;
             alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
             UITextField* textField = [alertView textFieldAtIndex:0];
             textField.text = defaultText;
+         
+           [textField resignFirstResponder];
+           [textField setKeyboardType:UIKeyboardTypeNumberPad];
+           [textField becomeFirstResponder];
         }
         
         [alertView show];
      
-        [textField resignFirstResponder];
-        [textField setKeyboardType:UIKeyboardTypeNumberPad];
-        [textField becomeFirstResponder];
+
 #ifdef __IPHONE_8_0
     }
 #endif
