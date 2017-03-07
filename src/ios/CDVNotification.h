@@ -31,7 +31,8 @@
 
 @end
 
-@interface CDVAlertView : UIAlertView {}
+@interface CDVAlertView : UIAlertView {};
+@interface ViewController : UIViewController<UIKeyInput>;
 @property (nonatomic, copy) NSString* callbackId;
 
 @end
