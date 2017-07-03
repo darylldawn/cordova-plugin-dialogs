@@ -45,9 +45,6 @@ static NSMutableArray *alertList = nil;
     if (NSClassFromString(@"UIAlertController")) {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-
-        alertController.messageFont = [UIFont systemFontOfSize:12];
-        alertController.messageColor = [UIColor blueColor];
         
         if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.3) {
             
