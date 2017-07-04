@@ -28,7 +28,6 @@
 - (void)confirm:(CDVInvokedUrlCommand*)command;
 - (void)prompt:(CDVInvokedUrlCommand*)command;
 - (void)beep:(CDVInvokedUrlCommand*)command;
-- (void)alertGuide::(CDVInvokedUrlCommand*)command;
 
 @end
 
