@@ -147,7 +147,7 @@ static NSMutableArray *alertList = nil;
 {
     NSString* callbackId = command.callbackId;
     NSString* message = [command argumentAtIndex:0];
-    NSMutableAttributedString* title = [[NSMutableAttributedString alloc] initWithString:[command argumentAtIndex:1];
+    NSMutableAttributedString* title = [[NSMutableAttributedString alloc] initWithString:[command argumentAtIndex:1]];
     [title addAttribute:NSFontAttributeName
           value:[UIFont systemFontOfSize:50.0]
           range:NSMakeRange(24, 11)];
@@ -162,7 +162,7 @@ static NSMutableArray *alertList = nil;
 {
     NSString* callbackId = command.callbackId;
     NSString* message = [command argumentAtIndex:0];
-    NSMutableAttributedString* title = [[NSMutableAttributedString alloc] initWithString:[command argumentAtIndex:1];
+    NSMutableAttributedString* title = [[NSMutableAttributedString alloc] initWithString:[command argumentAtIndex:1]];
     [title addAttribute:NSFontAttributeName
           value:[UIFont systemFontOfSize:50.0]
           range:NSMakeRange(24, 11)];
@@ -177,7 +177,7 @@ static NSMutableArray *alertList = nil;
 {
     NSString* callbackId = command.callbackId;
     NSString* message = [command argumentAtIndex:0];
-    NSMutableAttributedString* title = [[NSMutableAttributedString alloc] initWithString:[command argumentAtIndex:1];
+    NSMutableAttributedString* title = [[NSMutableAttributedString alloc] initWithString:[command argumentAtIndex:1]];
     [title addAttribute:NSFontAttributeName
           value:[UIFont systemFontOfSize:50.0]
           range:NSMakeRange(24, 11)];
