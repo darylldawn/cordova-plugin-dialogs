@@ -151,7 +151,7 @@ static NSMutableArray *alertList = nil;
     [title addAttribute:NSFontAttributeName
           value:[UIFont systemFontOfSize:50.0]
           range:NSMakeRange(24, 11)];
-    [alertVC setValue:hogan forKey:@"attributedTitle"];
+    [alertVC setValue:title forKey:@"attributedTitle"];
     //NSString* title = [command argumentAtIndex:1];
     NSString* buttons = [command argumentAtIndex:2];
 
@@ -166,7 +166,7 @@ static NSMutableArray *alertList = nil;
     [title addAttribute:NSFontAttributeName
           value:[UIFont systemFontOfSize:50.0]
           range:NSMakeRange(24, 11)];
-    [alertVC setValue:hogan forKey:@"attributedTitle"];
+    [alertVC setValue:title forKey:@"attributedTitle"];
     //NSString* title = [command argumentAtIndex:1];
     NSArray* buttons = [command argumentAtIndex:2];
 
@@ -181,7 +181,7 @@ static NSMutableArray *alertList = nil;
     [title addAttribute:NSFontAttributeName
           value:[UIFont systemFontOfSize:50.0]
           range:NSMakeRange(24, 11)];
-    [alertVC setValue:hogan forKey:@"attributedTitle"];
+    [alertVC setValue:title forKey:@"attributedTitle"];
     //NSString* title = [command argumentAtIndex:1];
     NSArray* buttons = [command argumentAtIndex:2];
     NSString* defaultText = [command argumentAtIndex:3];
