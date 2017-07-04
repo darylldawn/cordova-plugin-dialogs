@@ -21,7 +21,6 @@
 
 #define DIALOG_TYPE_ALERT @"alert"
 #define DIALOG_TYPE_PROMPT @"prompt"
-#define DIALOG_TYPE_ALERTGUIDE @"alertGuide"
 
 static void soundCompletionCallback(SystemSoundID ssid, void* data);
 static NSMutableArray *alertList = nil;
@@ -44,45 +43,6 @@ static NSMutableArray *alertList = nil;
     int count = (int)[buttons count];
 #ifdef __IPHONE_8_0
     if (NSClassFromString(@"UIAlertController")) {
-     
-        if ([dialogType isEqualToString:DIALOG_TYPE_ALERTGUIDE]) {
-              NSString *title = @"Title";
-              NSString *message = @"UIAlertControllerで左寄せしたりフォントサイズを変更したりテキストカラーを変更したりするテスト";
-
-              //UIAlertController *alertController;
-              CustomUIAlertController *alertController;
-
-
-              alertController = [CustomUIAlertController alertControllerWithTitle:title
-                                       message:message
-                                preferredStyle:UIAlertControllerStyleAlert];
-              // OK ボタンを表示する
-              UIAlertAction *alertAction =
-              [UIAlertAction actionWithTitle:@"OK"
-                            style:UIAlertActionStyleCancel
-                          handler:nil];
-              [alertController addAction:alertAction];
-
-
-              // タイトルの表示設定
-              alertController.titleAlign = NSTextAlignmentRight;
-              alertController.titleFont = [UIFont boldSystemFontOfSize:32];
-              alertController.titleColor = [UIColor redColor];
-
-              // 本文の表示設定
-              alertController.messageAlign = NSTextAlignmentLeft;
-              alertController.messageFont = [UIFont systemFontOfSize:12];
-              alertController.messageColor = [UIColor blueColor];
-
-              // ボタン色設定
-              alertController.tintColor = [UIColor greenColor];
-
-
-              [vc presentViewController:alertController animated:YES completion:nil];
-        }
-     
-       else {
-        
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
         
         if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.3) {
@@ -143,7 +103,7 @@ static NSMutableArray *alertList = nil;
         if ([alertList count]==1) {
             [self presentAlertcontroller];
         }
-       }
+       
         
 
         
@@ -213,17 +173,6 @@ static NSMutableArray *alertList = nil;
     NSString* defaultText = [command argumentAtIndex:3];
 
     [self showDialogWithMessage:message title:title buttons:buttons defaultText:defaultText callbackId:callbackId dialogType:DIALOG_TYPE_PROMPT];
-}
-
-- (void)alertGuide:(CDVInvokedUrlCommand*)command
-{
-    NSString* callbackId = command.callbackId;
-    NSString* message = [command argumentAtIndex:0];
-    NSString* title = [command argumentAtIndex:1];
-    NSArray* buttons = [command argumentAtIndex:2];
-    NSString* defaultText = [command argumentAtIndex:3];
-
-    [self showDialogWithMessage:message title:title buttons:buttons defaultText:defaultText callbackId:callbackId dialogType:DIALOG_TYPE_ALERTGUIDE];
 }
 
 /**
@@ -306,83 +255,6 @@ static void soundCompletionCallback(SystemSoundID  ssid, void* data) {
     }];
     
 }
-
-// - - - - 
--(CustomUIAlertController*)init{
-    self = [super init];
-    if(self)
-    {
-        _messageAlign = NSTextAlignmentCenter;
-        _messageColor = nil;
-        _messageFont = nil;
-
-        _titleAlign = NSTextAlignmentCenter;
-        _titleColor = nil;
-        _titleFont = nil;
-
-        _tintColor = nil;
-    }
-    return self;
-}
-
-
-- (void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-
-
-    NSArray *viewArray = [self viewArrayWhichHasUILabel:[self view]];
-    UILabel *alertTitle = viewArray[0];
-    UILabel *alertMessage = viewArray[1];
-
-
-    alertTitle.textAlignment = _titleAlign;
-    if(_titleColor)
-    {
-        alertTitle.textColor = _titleColor;
-    }
-    if(_titleFont)
-    {
-        alertTitle.font = _titleFont;
-    }
-
-
-
-    alertMessage.textAlignment = _messageAlign;
-    if(_messageColor)
-    {
-        alertMessage.textColor = _messageColor;
-    }
-    if(_messageFont)
-    {
-        alertMessage.font = _messageFont;
-    }
-
-
-    if(_tintColor)
-    {
-        self.view.tintColor = _tintColor;
-    }
-}
-
-- (NSArray *)viewArrayWhichHasUILabel:(UIView *)root {
-    NSLog(@"%@", root.subviews);
-    NSArray *_subviews = nil;
-
-    for (UIView *v in root.subviews) {
-        if ([v isKindOfClass:[UILabel class]]) {
-            _subviews = root.subviews;
-            return _subviews;
-        }
-        _subviews = [self viewArrayWhichHasUILabel:v];
-        if (_subviews) {
-            break;
-        }
-    }
-    return _subviews;
-}
-// - - - - 
-
 @end
 
 @implementation CDVAlertView
